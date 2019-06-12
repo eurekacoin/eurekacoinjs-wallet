@@ -2215,21 +2215,21 @@ pushdata-bitcoin@^1.0.1:
   dependencies:
     bitcoin-ops "^1.3.0"
 
-qtum-opcodes@^1.0.0:
+eurekacoin-opcodes@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/qtum-opcodes/-/qtum-opcodes-1.0.0.tgz#2353d3647f0ec6283763338d52464c072f83f53f"
+  resolved "https://registry.yarnpkg.com/eurekacoin-opcodes/-/eurekacoin-opcodes-1.0.0.tgz#2353d3647f0ec6283763338d52464c072f83f53f"
 
-qtumd-rpc@^0.0.2:
+eurekacoind-rpc@^0.0.2:
   version "0.0.2"
-  resolved "https://registry.yarnpkg.com/qtumd-rpc/-/qtumd-rpc-0.0.2.tgz#511eebcc48da7fe8074ad61c4c32bb4dc2916f50"
+  resolved "https://registry.yarnpkg.com/eurekacoind-rpc/-/eurekacoind-rpc-0.0.2.tgz#511eebcc48da7fe8074ad61c4c32bb4dc2916f50"
 
-qtumjs-lib@^0.0.6:
+eurekacoinjs-lib@^0.0.6:
   version "0.0.6"
-  resolved "https://registry.yarnpkg.com/qtumjs-lib/-/qtumjs-lib-0.0.6.tgz#d57f76b9fc3c4a1b01ad1986716ff73f86d1ce8d"
+  resolved "https://registry.yarnpkg.com/eurekacoinjs-lib/-/eurekacoinjs-lib-0.0.6.tgz#d57f76b9fc3c4a1b01ad1986716ff73f86d1ce8d"
   dependencies:
     bignumber.js "^4.1.0"
     bitcoinjs-lib "^3.3.2"
-    qtum-opcodes "^1.0.0"
+    eurekacoin-opcodes "^1.0.0"
     safe-buffer "^5.1.1"
 
 querystring-es3@^0.2.0:

@@ -1,8 +1,8 @@
-import RpcClient, {IConfig} from "qtumd-rpc"
+import RpcClient, {IConfig} from "eurekacoind-rpc"
 
 import {Network, NetworkNames} from "./Network"
 
-export default class QtumRPC {
+export default class EurekaCoinRPC {
   public rpc: RpcClient
 
   constructor(config?: IConfig) {
@@ -21,8 +21,8 @@ export default class QtumRPC {
   }
 }
 
-export const rpcClient = new QtumRPC({
-  user: "qtum",
+export const rpcClient = new EurekaCoinRPC({
+  user: "eurekacoin",
   pass: "test",
   port: "18332",
   protocol: "http",

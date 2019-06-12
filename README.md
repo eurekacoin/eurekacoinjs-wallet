@@ -1,22 +1,22 @@
-# QtumJS Wallet
+# EurekaCoinJS Wallet
 
-This is a client-side wallet library that can generate private keys from a mnemonic, or import private keys from other QTUM wallets.
+This is a client-side wallet library that can generate private keys from a mnemonic, or import private keys from other EUREKACOIN wallets.
 
-It can sign transactions locally, and submit the raw transaction data to a remote qtum node. The blockchain data is provided by the Insight API (which powers https://explorer.qtum.org/), rather than the raw qtumd RPC calls.
+It can sign transactions locally, and submit the raw transaction data to a remote eurekacoin node. The blockchain data is provided by the Insight API (which powers https://explorer.eurekacoin.org/), rather than the raw eurekacoind RPC calls.
 
-This library makes it possible to run DApp without the users having to run a full qtumd node.
+This library makes it possible to run DApp without the users having to run a full eurekacoind node.
 
-> This library is extracted from the official [QTUM web wallet](https://github.com/qtumproject/qtum-web-wallet).
+> This library is extracted from the official [EUREKACOIN web wallet](https://github.com/eurekacoin/eurekacoin-web-wallet).
 
 ## Install
 
 ```
-yarn add qtumjs-wallet
+yarn add eurekacoinjs-wallet
 ```
 
 ## Running Tests
 
-The qtumjs-wallet depends on a number of external services. To run the unit tests, you'll need to start the services using [docker-compose](https://docs.docker.com/compose/install/).
+The eurekacoinjs-wallet depends on a number of external services. To run the unit tests, you'll need to start the services using [docker-compose](https://docs.docker.com/compose/install/).
 
 ```
 npm run start-services
@@ -49,7 +49,7 @@ There are some differences from the original web wallet repo.
 - Each wallet instance is instantiated with a network explicitly. This allows simultaneous use of different networks.
 - TypeScript for type hinting.
 - Uses satoshi (1e8) as internal units
-  - Can represent up to ~90 million QTUM accurately.
+  - Can represent up to ~90 million EUREKACOIN accurately.
 - Uses [coinselect](https://github.com/bitcoinjs/coinselect) to select utxos.
   - Taking into account the size of a transaction, and multiplies that by fee rate per byte.
   - Uses blackjack algorithm, and fallbacks to simple accumulative.
@@ -80,7 +80,7 @@ There are some differences from the original web wallet repo.
 ## Create Mnemonic+Password Wallet
 
 ```js
-import { networks, generateMnemonic } from "qtumjs-wallet"
+import { networks, generateMnemonic } from "eurekacoinjs-wallet"
 
 async function main() {
   const network = networks.testnet
@@ -111,10 +111,10 @@ This example restores a wallet from a private key (in [WIF](https://en.bitcoin.i
 
 The transaction is signed locally, and the transaction submitted to a remote API.
 
-The currency unit used is `satoshi`. To convert qtum to satoshi you should multiply the amount you want with `1e8`.
+The currency unit used is `satoshi`. To convert eurekacoin to satoshi you should multiply the amount you want with `1e8`.
 
 ```js
-import { networks } from "qtumjs-wallet"
+import { networks } from "eurekacoinjs-wallet"
 
 async function main() {
   // Use the test network. Or `networks.mainnet`
@@ -126,7 +126,7 @@ async function main() {
   console.log(wallet.address)
 
   const toAddr = "qS3ThpDn4HRH9we2hZUdF3F3uR7TTvpZ9v"
-  // Sending 0.1 qtum
+  // Sending 0.1 eurekacoin
   const sendtx = await wallet.send(toAddr, 1, 0.1 * 1e8)
   console.log("sendtx", sendtx)
 }
@@ -152,10 +152,10 @@ contract Burn {
 }
 ```
 
-The ABI encoding for the `burnbabyburn()` invokation is `e179b912`. We'll burn 0.05 qtum, expressed in unit of satoshi.
+The ABI encoding for the `burnbabyburn()` invokation is `e179b912`. We'll burn 0.05 eurekacoin, expressed in unit of satoshi.
 
 ```ts
-import { networks } from "qtumjs-wallet"
+import { networks } from "eurekacoinjs-wallet"
 
 async function main() {
   const network = networks.testnet
@@ -168,7 +168,7 @@ async function main() {
   const encodedData = "e179b912" // burnbabyburn()
 
   const tx = await wallet.contractSend(contractAddress, encodedData, {
-    amount: 0.05 * 1e8, // 0.05 qtum in satoshi
+    amount: 0.05 * 1e8, // 0.05 eurekacoin in satoshi
   })
 
   console.log(tx)
@@ -182,7 +182,7 @@ main().catch((err) => console.log(err))
 Two networks are predefined:
 
 ```js
-import { networks } from "qtumjs-wallet"
+import { networks } from "eurekacoinjs-wallet"
 
 // Main Network
 networks.mainnet
@@ -199,7 +199,7 @@ Alias for `fromWIF`.
 
 `fromWIF` constructs a wallet from private key (in [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) format).
 
-Suppose you want to import the public address `qg3HYD8c4bAVLeEzA9t3Ken3Y3Mni1HZSS`. Use `qtum-cli` to dump the private key from wallet:
+Suppose you want to import the public address `qg3HYD8c4bAVLeEzA9t3Ken3Y3Mni1HZSS`. Use `eurekacoin-cli` to dump the private key from wallet:
 
 ```
 qcli dumpprivkey qg3HYD8c4bAVLeEzA9t3Ken3Y3Mni1HZSS
@@ -326,7 +326,7 @@ Example:
 
 ```ts
 const toAddress = "qZaTYNEimGLuqnBDpP3KvBKsFs3DbCuwnr"
-const amount = 0.15 * 1e8 // 0.15 QTUM
+const amount = 0.15 * 1e8 // 0.15 EUREKACOIN
 
 const tx = await wallet.send(toAddress, amount)
 console.log(tx)
@@ -354,7 +354,7 @@ Setting tx fee rate manually:
 
 ```ts
 const tx = await wallet.send(toAddress, amount, {
-  // rate is 400 satoshi per byte, or  ~0.004 qtum/KB, as is typical.
+  // rate is 400 satoshi per byte, or  ~0.004 eurekacoin/KB, as is typical.
   feeRate: 400,
 })
 ```
@@ -404,10 +404,10 @@ Example output, the raw transaction as hexadecimal string:
 0100000001a09a921ecb383b018b804fc1a274e6e1e67e30d4d0ee58f1085f59bc77c486ca010000006a47304402202fa6106aca6c682ab89b02ad62614462d1ec5e95cb8b4810ce793ad52a4002590220531cf380368cb8f92c7dd03ee375423073a14e5b7da6f48127c63cab17fbf2d7012103c12c73abaccf35b40454e7eb0c4b5760ce7a720d0cd2c9fb7f5423168aaeea03ffffffff02c0e1e400000000001976a914afb616c886f0efd9a9a486ccc07a09ab8d7a4bb288ac49b6ffe0010000001976a914c78300c58ab7c73e1767e3d550464d591ab0a12888ac00000000
 ```
 
-You can decode the raw transaction using `qtum-cli`:
+You can decode the raw transaction using `eurekacoin-cli`:
 
 ```
-qtum-cli decoderawtransaction 0100000001a09a921ecb38...
+eurekacoin-cli decoderawtransaction 0100000001a09a921ecb38...
 
 {
   // ...
@@ -550,7 +550,7 @@ Example output:
 Decode the raw transaction:
 
 ```
-qtum-cli decoderawtransaction 0100000001e7b6f2767e8a6...
+eurekacoin-cli decoderawtransaction 0100000001e7b6f2767e8a6...
 ```
 
 Decoded Raw TX:
@@ -828,7 +828,7 @@ This is an scrypt helper function, which may be removed in the future.
 To use scrypt to hash a secret:
 
 ```js
-import { scrypt } from "qtumjs-wallet"
+import { scrypt } from "eurekacoinjs-wallet"
 
 // by default, the bip38 scrypt parameters are used
 const hash = scrypt("my secret", {
@@ -856,7 +856,7 @@ status { current: 262000, total: 262144, percent: 99.945068359375 }
 You may also choose to specify your own scrypt parameters:
 
 ```js
-import { scrypt, params } from "qtumjs-wallet"
+import { scrypt, params } from "eurekacoinjs-wallet"
 
 const hash = scrypt("my secret", {
   params: {

@@ -1,4 +1,4 @@
-declare module "qtumd-rpc" {
+declare module "eurekacoind-rpc" {
     export interface IConfig {
         protocol?: string
         user?: string
