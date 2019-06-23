@@ -4,8 +4,8 @@ import { INetworkInfo } from "./Network"
 import { NetworkNames } from "./constants"
 
 const INSIGHT_BASEURLS: { [key: string]: string } = {
-  [NetworkNames.MAINNET]: "https://explorer.eurekacoin.io/eurekacoin-insight-api",
-  [NetworkNames.TESTNET]: "https://testnet.eurekacoin.io/eurekacoin-insight-api",
+  [NetworkNames.MAINNET]: "https://eurekanetwork.io/insight-api",
+  [NetworkNames.TESTNET]: "https://testnet.eurekanetwork.io/insight-api",
   [NetworkNames.REGTEST]: "http://localhost:3001/eurekacoin-insight-api",
 }
 
