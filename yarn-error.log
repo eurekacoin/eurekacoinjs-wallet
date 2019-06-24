@@ -1,0 +1,87 @@
+Arguments: 
+  /home/bago/.nvm/versions/node/v10.16.0/bin/node /home/bago/.nvm/versions/node/v10.16.0/bin/yarn add eurekacoinjs-wallet
+
+PATH: 
+  /home/bago/.nvm/versions/node/v10.16.0/bin:/home/bago/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.16.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/eurekacoinjs-wallet: Not found
+      at Request.params.callback [as _callback] (/home/bago/.nvm/versions/node/v10.16.0/lib/node_modules/yarn/lib/cli.js:66091:18)
+      at Request.self.callback (/home/bago/.nvm/versions/node/v10.16.0/lib/node_modules/yarn/lib/cli.js:129590:22)
+      at Request.emit (events.js:198:13)
+      at Request.<anonymous> (/home/bago/.nvm/versions/node/v10.16.0/lib/node_modules/yarn/lib/cli.js:130562:10)
+      at Request.emit (events.js:198:13)
+      at IncomingMessage.<anonymous> (/home/bago/.nvm/versions/node/v10.16.0/lib/node_modules/yarn/lib/cli.js:130484:12)
+      at Object.onceWrapper (events.js:286:20)
+      at IncomingMessage.emit (events.js:203:15)
+      at endReadableNT (_stream_readable.js:1129:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "eurekacoinjs-wallet",
+    "version": "0.2.1",
+    "description": "A toolkit for building eurekacoin light wallets",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+      "start-services": "./scripts/start-services.sh",
+      "build": "tsc -w",
+      "bundle": "webpack --config webpack.config.js",
+      "clean": "docker-compose stop && docker-compose rm -f && rm -rf ./data && rm -rf lib",
+      "test": "tsc && mocha lib/**/*.test.js",
+      "test-watch": "tsc -w & mocha -w lib/**/*.test.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/eurekacoin/eurekacoinjs-wallet.git"
+    },
+    "devDependencies": {
+      "@types/bitcoinjs-lib": "^3.3.1",
+      "@types/chai": "^4.1.2",
+      "@types/mocha": "^2.2.48",
+      "@types/node": "^8.9.1",
+      "chai": "^4.1.2",
+      "mocha": "^5.2.0",
+      "ts-loader": "^4.3.1",
+      "tslint": "^5.11.0",
+      "typescript": "^3.0.1",
+      "webpack": "^4.16.5",
+      "webpack-cli": "^3.1.0"
+    },
+    "dependencies": {
+      "@types/bip38": "^2.0.0",
+      "@types/secp256k1": "^3.5.0",
+      "axios": "^0.17.1",
+      "bignumber.js": "4.1.0",
+      "bip38": "^2.0.2",
+      "bip39": "^2.5.0",
+      "buffer": "^5.1.0",
+      "coinselect": "^3.1.11",
+      "hash.js": "^1.1.5",
+      "eurekacoind-rpc": "git://github.com/eurekacoin/eurekacoind-rpc.git#master",
+      "eurekacoinjs-lib": "git://github.com/eurekacoin/eurekacoinjs-lib.git#master",
+      "safe-buffer": "^5.1.1",
+      "scryptsy": "^2.0.0",
+      "secp256k1": "^3.5.0",
+      "varuint-bitcoin": "^1.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
